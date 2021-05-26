@@ -1,0 +1,43 @@
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    width: 5px;
+    background: paleturquoise;;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 1em;
+    background-color: #ddd;
+    outline: 1px solid slategrey;
+    border-radius: 1rem;
+}
+ 
+.shadow-nohover {
+box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px
+    rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card1 {
+background: dark4;
+border: 1px;
+border-radius: 0.3rem;
+width: 100%;
+} 
+.notification { 
+padding: 2px 31px;
+ position: relative;
+ display: inline-block;
+ border-radius: 2px;
+} 
+.notification .badge {
+ position: absolute;
+ top: -3px;
+ right: -10px;
+ padding: 5px 13px;
+ border-radius: 50%;
+ background-color: red;
+ color: white;
+}

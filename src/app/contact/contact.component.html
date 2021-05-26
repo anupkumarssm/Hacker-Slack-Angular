@@ -1,0 +1,92 @@
+<ng-template #content let-modal>
+    <div class="modal-header bg-primary">
+      <h4 class="modal-title text-white" id="modal-basic-title">Add Contact</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm" novalidate>
+     
+      <div class="form-group">
+<label for="username">Full name </label>
+<input type="text" class="form-control" name="fullname" placeholder="Full name" minlength="3" maxlength="20"  [(ngModel)]="form.fullname" required #fullname="ngModel" />
+          <div class="alert-danger" *ngIf="fullname.errors && f.submitted">
+              <div *ngIf="fullname.errors.required">Fullname is required</div>
+               
+          </div>
+</div>
+
+<div class="form-group">
+  <label for="mobile">Mobile</label>
+  <input type="text" class="form-control" name="mobile" placeholder="Mobile" minlength="3" maxlength="10"  [(ngModel)]="form.mobile" required #mobile="ngModel" />
+            <div class="alert-danger" *ngIf="mobile.errors && f.submitted">
+                <div *ngIf="mobile.errors.required">Mobile is required</div>
+                 
+            </div>
+  </div>
+ 
+      <div class="form-group">
+          <button class="btn btn-primary btn-block">Sign Up</button>
+      </div> 
+  </form> 
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Cancel</button>
+      <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  <div class="row">
+    <div class="col-md-6"> <h4 class="text-white">Contact</h4></div>
+    <div class="col-md-6 text-right"><button class="btn btn-sm bg-white btn-outline-primary" (click)="open(content)">Add Contact</button>
+    </div>
+</div>
+<hr style="background-color: white;">
+  <div class="card">
+      <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Mobile number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let country of countries; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>
+                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
+                {{ country.name }}
+              </td>
+              <td>{{ country.population | number }}</td>
+            </tr>
+            </tbody>
+          </table>
+
+
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Mobile number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let contacts of contactsList; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>  {{ contacts.fullname }}
+              </td>
+              <td>{{ contacts.mobile}}</td>
+            </tr>
+            </tbody>
+          </table>
+
+=={{contactsList}}
+
+
+
+      </div>
+  </div>

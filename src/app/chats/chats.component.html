@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header" id="directContactName">
+            <ng-container *ngIf="typeValue; then directmessage; else groupmessage">
+</ng-container>
+
+<ng-template #directmessage>
+  <div>
+    <a href="directmessage">Back  &nbsp;AAAAAA&nbsp;&nbsp;, +91 9600170540&nbsp;<span style="color: green;"><b>(Online)</b></span>&nbsp;&nbsp;</a>
+  </div>
+</ng-template>
+<ng-template #groupmessage>
+  <div>
+    <a href="groupmessage">Back12  &nbsp;AAAAAA&nbsp;&nbsp;, +91 9600170540&nbsp;<span style="color: green;"><b>(Online)</b></span>&nbsp;&nbsp;</a>
+  </div>
+</ng-template>
+                    </div>
+    <div class="card-body1"> 
+
+        <div class="col-12 px-0">
+            <div class="px-4 py-5 chat-box bg-white" id="chat-box"  style="overflow-y: auto;height: 420px;">
+               
+                <div [innerHTML]="mainMessageBox"></div>
+            </div>
+        </div>
+    </div> 
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-12 col-sm-9 col-md-9 col-lg-9 my-1">
+             <input class="form-control" type="text"
+                    maxlength="50" placeholder="Message" #textMessage>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3 my-1" align="center">
+                <button class="form-control col-6" style="color: green;"
+                    id="sendBtn" (click)="addElement()"> Send
+                </button>
+            </div>
+        </div>
+    </div>
+</div> 

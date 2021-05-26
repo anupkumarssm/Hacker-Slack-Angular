@@ -1,0 +1,170 @@
+<ng-template #content let-modal>
+  <div class="modal-header bg-primary">
+    <h4 class="modal-title text-white" id="modal-basic-title">Add Contact</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <form action="/signup" method="post" class="needs-validation"
+      id="singupForm" novalidate>
+      <div class="form-group textstyle">
+          <label for="username" class=""><b>Full
+                  Name:</b></label> <input type="text" class="form-control"
+              placeholder="Enter full name" maxlength="15"
+              name="fullname" autocomplete="off" required="required">
+      </div>
+      <div class="form-group textstyle">
+          <label for="username" class=""><b>Mobile :</b></label> <input type="text" class="form-control mobile"
+              placeholder="Enter Mobile" name="mobile"
+              autocomplete="off" required="required">
+      </div>  
+  </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Cancel</button>
+    <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+<div class="row">
+  <div class="col-md-6"> <h4 class="text-white">Group Messages</h4></div>
+  <div class="col-md-6 text-right"><button class="btn btn-sm bg-white btn-outline-primary" (click)="open(content)">Add Contact</button>
+  </div>
+</div>
+<hr style="background-color: white;">
+<div class="card11 card1 text-dark shadow-nohover" style="background-color:rgb(26, 131, 180)">
+    <div class="card-body" style="overflow-y: auto;height: 475px;">
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card shadow-nohover">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Name :  {{ country.name }} </li>
+          <li class="list-group-item">Mobile :  XXXXXXXXXX</li>
+          <li class="list-group-item">Last seen : 24 Apr 2021, 02 PM</li>
+          <li class="list-group-item"><button class="btn btn-dark btn-sm form-control" (click)="goToChatPage()">  <a class="notification" style="color: white;">Chats<span class="badge">12</span></a></button></li>
+        </ul>
+      </div>
+      </div>
+      </div>
+ 
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      </div>
+      </div>
+    </div>
+</div>

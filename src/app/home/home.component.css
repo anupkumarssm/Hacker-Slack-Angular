@@ -1,0 +1,5 @@
+.container{
+ display: flex;
+ justify-content:center /* flex-start, flex-end, space-between, space-evenly, space-around etc */
+
+}
