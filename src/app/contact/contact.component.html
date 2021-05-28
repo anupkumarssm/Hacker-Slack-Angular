@@ -26,16 +26,24 @@
                  
             </div>
   </div>
- 
-      <div class="form-group">
-          <button class="btn btn-primary btn-block">Sign Up</button>
-      </div> 
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 text-right"> <button  class="btn btn-primary btn-block">Sign Up</button>
+    </div>
+</div>
+
+
+
+      <!-- <div class="form-group">
+        <button  class="btn btn-primary btn-block">Sign Up</button>
+      </div>  -->
   </form> 
     </div>
-    <div class="modal-footer">
+    <!-- <div class="modal-footer">
       <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Cancel</button>
       <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Save</button>
-    </div>
+    </div> -->
   </ng-template>
   <div class="row">
     <div class="col-md-6"> <h4 class="text-white">Contact</h4></div>
@@ -45,27 +53,6 @@
 <hr style="background-color: white;">
   <div class="card">
       <div class="card-body">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Mobile number</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let country of countries; index as i">
-              <th scope="row">{{ i + 1 }}</th>
-              <td>
-                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-                {{ country.name }}
-              </td>
-              <td>{{ country.population | number }}</td>
-            </tr>
-            </tbody>
-          </table>
-
-
           <table class="table table-striped">
             <thead>
             <tr>
@@ -75,18 +62,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let contacts of contactsList; index as i">
+            <tr *ngFor="let contact of contactList; index as i">
               <th scope="row">{{ i + 1 }}</th>
-              <td>  {{ contacts.fullname }}
+              <td> {{ contact.fullname }}
               </td>
-              <td>{{ contacts.mobile}}</td>
+              <td>{{ contact.mobile}}</td>
             </tr>
             </tbody>
           </table>
-
-=={{contactsList}}
-
-
-
       </div>
   </div>

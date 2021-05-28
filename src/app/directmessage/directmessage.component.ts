@@ -2,39 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-interface Country {
-  name: string;
-  flag: string;
-  area: number;
-  population: number;
-}
-
-const COUNTRIES: Country[] = [
-  {
-    name: 'Russia',
-    flag: 'f/f3/Flag_of_Russia.svg',
-    area: 17075200,
-    population: 146989754
-  },
-  {
-    name: 'Canada',
-    flag: 'c/cf/Flag_of_Canada.svg',
-    area: 9976140,
-    population: 36624199
-  },
-  {
-    name: 'United States',
-    flag: 'a/a4/Flag_of_the_United_States.svg',
-    area: 9629091,
-    population: 324459463
-  },
-  {
-    name: 'China',
-    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    area: 9596960,
-    population: 1409517397
-  }
-];
+import { Contacts } from '../utils/contacts';
+import { AppService } from '../app.service'; 
 
 @Component({
   selector: 'app-directmessage',
@@ -42,13 +11,24 @@ const COUNTRIES: Country[] = [
   styleUrls: ['./directmessage.component.css']
 })
 export class DirectmessageComponent implements OnInit {
+  contactList!: Contacts[];
 
-  ngOnInit(): void {
+  constructor(private modalService: NgbModal,private router: Router, private appService: AppService) {
   }
 
-  closeResult = '';
+  ngOnInit(): void {
+    this.appService.getcontacts().subscribe(
+      data => {
+        this.contactList = data;
+      },
+      err => {
+        this.contactList = err;
+        console.log("DATA : " + err)
+      }
+    );
+  }
 
-  constructor(private modalService: NgbModal,private router: Router) {}
+  closeResult = ''; 
 
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -66,14 +46,10 @@ export class DirectmessageComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
-  }
-
-  
-  
-  countries = COUNTRIES;
-
-  goToChatPage(){
-this.router.navigate(['/chats'],{queryParams:{type:'direct'}})
+  } 
+  goToChatPage(_event: any,contact: any){
+    //alert(contact.mobile)
+this.router.navigate(['/chats'],{queryParams:{type:'direct',mobile:contact.mobile,fullname:contact.fullname}})
   }
 
 }

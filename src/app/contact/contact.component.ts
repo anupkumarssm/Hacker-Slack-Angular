@@ -1,53 +1,10 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AppService } from '../app.service';
 import { TokenStorageService } from '../token-storage.service';
-
-interface Country {
-  name: string;
-  flag: string;
-  area: number;
-  population: number;
-}
-
-const COUNTRIES: Country[] = [
-  {
-    name: 'Russia',
-    flag: 'f/f3/Flag_of_Russia.svg',
-    area: 17075200,
-    population: 146989754
-  },
-  {
-    name: 'Canada',
-    flag: 'c/cf/Flag_of_Canada.svg',
-    area: 9976140,
-    population: 36624199
-  },
-  {
-    name: 'United States',
-    flag: 'a/a4/Flag_of_the_United_States.svg',
-    area: 9629091,
-    population: 324459463
-  },
-  {
-    name: 'China',
-    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    area: 9596960,
-    population: 1409517397
-  }
-];
-
-
-interface Contacts {
-  fullname: string;
-  mobile: string;
-}
-
-
-
-
+import { Contacts } from '../utils/contacts';
 
 @Component({
   selector: 'app-contact',
@@ -55,39 +12,38 @@ interface Contacts {
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  contactsList!: Contacts[];
+  contactList!: Contacts[];
 
 
-  model: any = {}; 
+  model: any = {};
   form: any = {
     fullname: null,
     mobile: null
   };
   isSuccessful = false;
   isSignUpFailed = false;
-  errorMessage = ''; 
+  errorMessage = '';
 
-  constructor(private modalService: NgbModal,private appService: AppService, private tokenStorage: TokenStorageService, public fb: FormBuilder) { 
+  constructor(private modalService: NgbModal, private appService: AppService, private tokenStorage: TokenStorageService, public fb: FormBuilder) {
   }
 
-  
+
   ngOnInit(): void {
     this.appService.getcontacts().subscribe(
       data => {
-        this.contactsList = data;
-        console.log("DATA : "+data) 
+        this.contactList = data;
       },
       err => {
-        console.log("DATA : "+err)
+        console.log("DATA : " + err)
       }
     );
   }
 
   closeResult = '';
- 
+
 
   open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -103,13 +59,11 @@ export class ContactComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-  
-  countries = COUNTRIES;
 
   numberOnlyValidation(event: any) {
     const pattern = /[0-9.,]/;
     let inputChar = String.fromCharCode(event.charCode);
-  
+
     if (!pattern.test(inputChar)) {
       // invalid character, prevent input
       event.preventDefault();
@@ -119,12 +73,13 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void {
     const { fullname, mobile } = this.form;
-console.log("fullname : "+fullname);
+    console.log("fullname : " + fullname);
     this.appService.addcontact(fullname, mobile).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        window.location.reload();
       },
       err => {
         this.errorMessage = err.error.message;

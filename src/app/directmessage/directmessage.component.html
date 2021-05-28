@@ -34,137 +34,17 @@
 <hr style="background-color: white;">
 <div class="card card1 text-dark shadow-nohover" style="background-color:rgb(26, 131, 180)">
     <div class="card-body" style="overflow-y: auto;height: 475px;">
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
+      <div class="row">
+        <div class="col-md-3 my-2" *ngFor="let contact of contactList; index as i"> 
       <div class="card shadow-nohover">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Name :  {{ country.name }} </li>
-          <li class="list-group-item">Mobile :  XXXXXXXXXX</li>
-          <li class="list-group-item">Last seen : 24 Apr 2021, 02 PM</li>
-          <li class="list-group-item"><button class="btn btn-dark btn-sm form-control" (click)="goToChatPage()">  <a class="notification" style="color: white;">Chats<span class="badge">12</span></a></button></li>
+          <li class="list-group-item">Name :  {{ contact.fullname }} </li>
+          <li class="list-group-item">Mobile :  {{contact.mobile}}</li>
+          <li class="list-group-item">Last seen : {{contact.timestamp}}</li>
+          <li class="list-group-item"><button class="btn btn-dark btn-sm form-control" (click)="goToChatPage($event, contact)">  <a class="notification" style="color: white;">Chats<span class="badge">12</span></a></button></li>
         </ul>
       </div>
       </div>
-      </div>
- 
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
-
-      <div class="row my-2">
-        <div class="col-md-3" *ngFor="let country of countries; index as i"> 
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">  {{ i + 1 }}  {{ country.name }}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-      </div>
-      </div>
+      </div> 
     </div>
 </div>

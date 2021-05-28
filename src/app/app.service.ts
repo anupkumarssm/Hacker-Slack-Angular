@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './modal/user';
 import { Observable } from 'rxjs';
+import { Contacts } from './utils/contacts';
 
 
 
@@ -51,8 +52,14 @@ export class AppService {
     }, httpOptions);
   }
 
-  getcontacts(): Observable<any> {
-    return this.httpClient.get(URL + 'contacts');
+  public getcontacts(): Observable<Contacts[]> {
+    return this.httpClient.get<Contacts[]>(URL + 'contacts');
   }
+
+  public getmessages(): Observable<any> {
+    //alert("getmessages");
+    return this.httpClient.get(URL + 'getDirectMessagesData/3333333333');
+  }
+
 
 }
